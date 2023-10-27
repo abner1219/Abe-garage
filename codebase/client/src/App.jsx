@@ -27,7 +27,6 @@ function App() {
 
   return (
     <>
-      kkk
       <Header />
      <Routes>
         <Route path='/' element={ <><Home/></>} />
