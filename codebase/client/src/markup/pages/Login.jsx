@@ -64,7 +64,7 @@ const Login = () => {
 							<div className="row clearfix">
 								<div className="form-group col-md-8">
 									<input
-										type="email"
+										type="email" 
 										name="employee_email"
 										placeholder="Your Email"
 										required
