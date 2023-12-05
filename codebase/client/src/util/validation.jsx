@@ -90,4 +90,35 @@ export default {
 
 		return { isValid, errors };
 	},
+
+	validateForm3: (form) => {
+		let isValid = true;
+		const errors = {}; //An empty object that will store error messages associated with invalid fields.
+
+		// Validate customer first name
+		if (
+			!form.customer_first_name ||
+			!form.customer_first_name.match(/^[a-zA-Z]+$/)
+		) {
+			errors.customer_first_name = "Invalid customer first name";
+			isValid = false;
+		}
+
+		// Validate customer last name
+		if (
+			!form.customer_last_name ||
+			!form.customer_last_name.match(/^[a-zA-Z]+$/)
+		) {
+			errors.customer_last_name = "Invalid customer last name";
+			isValid = false;
+		}
+
+		// Validate employee phone
+		if (!form.customer_phone) {
+			errors.customer_phone = "customer phone is required";
+			isValid = false;
+		}
+
+		return { isValid, errors };
+	},
 };

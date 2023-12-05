@@ -1,52 +1,49 @@
 import React, { useState } from "react";
-
+import axios from "axios"; 
+import formvali from "../../../../util/validation";
 
 
 function EditCustomer() {
-// const [firstName, setFirstName] = useState('');
-//   const [lastName, setLastName] = useState('');
-//   const [phoneNumber, setPhoneNumber] = useState('');
+	const [form, setForm] = useState({
+		customer_first_name: "",
+		customer_last_name: "",
+		customer_phone: "",
+		is_active: false,
+	});
 
-//   const handleUpdate = () => {
-//     // Perform the update logic here (e.g., send data to a server)
-//     console.log('Update:', { firstName, lastName, phoneNumber });
-//   };
-
-	const [form, setForm] = useState({});
 	const [errors, setErrors] = useState({});
 
-	const hadleSubmit = async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const isvalid = formvali.validateForm2(form);
-		console.log(isvalid);
-		if (!isvalid.isValid) {
-			console.log(isvalid.errors);
+		const isValid = formvali.validateForm3(form);
+		console.log(isValid);
+		if (!isValid.isValid) {
+			console.log(isValid.errors);
 		} else {
 			try {
-				const responce = await axios.post("/api/add-customer", form);
-				if (responce.data.success) {
+				const response = await axios.post("/api/edit-customer", form);
+				if (response.data.success) {
 					e.target.value = "";
-					alert(responce.data.message);
+					alert(response.data.message);
 					window.location.reload();
 				}
-			} catch (error3) {
-				alert(error3.response.data.message);
+			} catch (error) {
+				alert(error.response.data.message);
 			}
 		}
 	};
 
-
-
-
-
-
-  return (
+	return (
 		<>
 			<div>
 				<div className="form-column col-lg-7">
 					<div className="inner-column">
-						<div className="contact-form">
-							<form onSubmit={hadleSubmit} id="contact-form">
+						<div className="contact-form sec-title style-two">
+							<br />
+							<h2>Edit:</h2>
+							<br />
+							<p className="font-weight-bold">Customer email:</p>
+							<form onSubmit={handleSubmit} id="contact-form">
 								<div className="row clearfix">
 									<div className="form-group col-md-12">
 										<input
@@ -95,7 +92,7 @@ function EditCustomer() {
 											<input
 												type="checkbox"
 												name="is_active"
-												checked={form.is_active} // Assuming is_active is a property in your form state
+												checked={form.is_active}
 												onChange={(e) => {
 													setForm({
 														...form,
@@ -121,46 +118,8 @@ function EditCustomer() {
 					</div>
 				</div>
 			</div>
-
-			{/* <div>
-				<form>
-					<label>
-						First Name:
-						<input
-							type="text"
-							value={firstName}
-							onChange={(e) => setFirstName(e.target.value)}
-						/>
-					</label>
-					<br />
-
-					<label>
-						Last Name:
-						<input
-							type="text"
-							value={lastName}
-							onChange={(e) => setLastName(e.target.value)}
-						/>
-					</label>
-					<br />
-
-					<label>
-						Phone Number:
-						<input
-							type="text"
-							value={phoneNumber}
-							onChange={(e) => setPhoneNumber(e.target.value)}
-						/>
-					</label>
-					<br />
-
-					<button type="button" onClick={handleUpdate}>
-						Update
-					</button>
-				</form>
-			</div> */}
 		</>
 	);
-};
+}
 
-export default EditCustomer
+export default EditCustomer;
