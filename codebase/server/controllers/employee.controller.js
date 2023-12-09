@@ -91,6 +91,26 @@ const employeeController = {
 
 		// data valid => start registering
 	},
+
+	allEmployee(req, res, next) {
+		employeeService.getAllUsers((err, results) => {
+			if (err) {
+				console.log(err);
+				return res.status(500).json({
+					success: "false",
+					message: "Database connection error during email checking",
+				});
+			} else {
+				return res.status(200).json({
+					success: true,
+					data: results,
+				
+				});
+		 }
+		}
+		);
+	}
+		
 };
 
 export default employeeController;

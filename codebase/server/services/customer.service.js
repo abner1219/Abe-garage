@@ -161,16 +161,13 @@ const customerService = {
 			}
 		);
 	},
-	allcustomer: (callback) => {
-		conn.query(customerQuery.allCustomers_data, (error, result, fields) => {
-			if (error) {
-				console.log(error);
-				return callback(error);
-			} else {
-				return callback(null, result);
-			}
-		});
-	},
+
+	// allcustomer: (callback) => {
+	// 	conn.query(
+	// 		customerQuery.allCustomers_data,
+
+
+
 	updatesinglecustomer: (data, callback) => {
 		conn.query(
 			customerQuery.updateCustomer_infoTableQuery,

@@ -14,7 +14,7 @@ function Admin() {
 							<Link to="/admin/dashbord">Dashbord</Link>
 						</li>
 						<li>
-							<Link to="/orders">Orders</Link>
+							<Link to="/admin/orders-list">Orders</Link>
 						</li>
 						<li>
 							<Link to="/new-order">New order</Link>
@@ -23,7 +23,7 @@ function Admin() {
 							<Link to="/admin/add-employee">Add employee</Link>
 						</li>
 						<li>
-							<Link to="/employee">Employee</Link>
+							<Link to="/admin/employee-list">Employee</Link>
 						</li>
 						<li>
 							<Link to="/admin/add-customer">Add customer</Link>

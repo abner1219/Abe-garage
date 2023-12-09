@@ -17,6 +17,7 @@ import Fo4 from "./markup/pages/404";
 // admin page
 import AddEmployee from "./markup/pages/admin/AddEmployee/AddEmployee";
 import AddCustomer from "./markup/pages/admin/addCustomer/AddCustomer";
+import EmployeeList from "./markup/pages/admin/employee/employeeList"
 
 //componnents
 import Header from "./markup/components/Header/Header";
@@ -111,6 +112,14 @@ function App() {
 					element={
 						<>
 							<AdminDashbordPage />
+						</>
+					}
+				/>
+					<Route
+					path="/admin/employee-list"
+					element={
+						<>
+							<EmployeeList />
 						</>
 					}
 				/>

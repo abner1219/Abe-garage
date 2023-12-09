@@ -41,6 +41,20 @@ const employeeService = {
             return callback(null, result);
         });
     },
+
+    getAllUsers: (callback) => {
+        conn.query(usersQuery.selectAllEmployeeQuery, (error, result, fields) => {
+            if (error) {
+                console.log(error);
+                return callback(error);
+            } else {
+           
+                return callback(null, result);
+            }
+        });
+    },
+
+
 };
 
 export default employeeService;
