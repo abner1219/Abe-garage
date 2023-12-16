@@ -74,7 +74,7 @@
 // 			}
 // 		)
 // 	}
-	
+
 // 	updateCustomerPhone: (data, callback) => {
 // 		conn.query(
 // 			customerQuery.updateCustomer_phoneQuery,
@@ -107,8 +107,6 @@
 // };
 
 // export default customerService;
-
-
 
 import conn from "../config/db.js";
 import customerQuery from "../query/customer.query.js";
@@ -162,12 +160,6 @@ const customerService = {
 		);
 	},
 
-	// allcustomer: (callback) => {
-	// 	conn.query(
-	// 		customerQuery.allCustomers_data,
-
-
-
 	updatesinglecustomer: (data, callback) => {
 		conn.query(
 			customerQuery.updateCustomer_infoTableQuery,
@@ -205,6 +197,21 @@ const customerService = {
 		conn.query(
 			customerQuery.selectCustomerByid,
 			[data],
+			(error, result, fields) => {
+				if (error) {
+					console.log(error);
+					return callback(error);
+				} else {
+					return callback(null, result);
+				}
+			}
+		);
+	},
+
+	allcustomer: (callback) => {
+		conn.query(
+			customerQuery.allCustomers_data,
+
 			(error, result, fields) => {
 				if (error) {
 					console.log(error);
