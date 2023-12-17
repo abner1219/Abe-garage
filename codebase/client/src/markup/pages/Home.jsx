@@ -47,9 +47,20 @@ const Home = () => {
 						<div className="row">
 							<div className="col-lg-5">
 								<div className="image-box">
-									<img src={vban1} alt="" />
-									<img src={vban2} alt="" />
-									<div className="year-experience" data-parallax='{"y": 30}'>
+									<img
+										className="parallax-image"
+										src={vban1}
+										alt=""
+									/>
+									<img
+										className="parallax-image"
+										src={vban2}
+										alt=""
+									/>
+									<div
+										className="year-experience move-slowly"
+										data-parallax='{"y": 30}'
+									>
 										<strong>17</strong> years <br />
 										Experience{" "}
 									</div>

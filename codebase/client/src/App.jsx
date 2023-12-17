@@ -25,6 +25,7 @@ import Footer from "./markup/components/Footer/Footer";
 import AddEmployeePage from "./markup/pages/admin/AddEmployeePage";
 import AddCustomerPage from "./markup/pages/admin/AddCustomerPage";
 import AdminDashbordPage from "./markup/pages/admin/AdminDashbordPage";
+import UpdateCustomerPage from "./markup/pages/admin/updateCustomer/UpdateCustomerPage";
 
 function App() {
 	return (
@@ -89,6 +90,14 @@ function App() {
 						</>
 					}
 				/>
+				<Route
+					path="/admin/update-single-customer"
+					element={
+						<>
+							<UpdateCustomerPage />
+						</>
+					}
+				/>
 
 				<Route
 					path="/admin/add-customer"
@@ -106,7 +115,7 @@ function App() {
 						</>
 					}
 				/>
-					<Route
+				<Route
 					path="/admin/employee-list"
 					element={
 						<>

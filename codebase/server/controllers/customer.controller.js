@@ -91,9 +91,8 @@ const customerController = {
 		});
 	},
 
-
 	updatesinglecustomer: async (req, res, next) => {
-		const customer_id = req.params.id.substring(1);
+		const customer_id = req.params.id;
 		console.log(customer_id);
 		const {
 			customer_first_name,
@@ -101,7 +100,7 @@ const customerController = {
 			customer_phone,
 			active_customer_status,
 		} = req.body;
-		console.log(req.body);
+
 		// check if customer_id is provided
 		if (
 			!customer_id ||
@@ -132,6 +131,7 @@ const customerController = {
 						customer_id,
 						customer_first_name,
 						customer_last_name,
+						customer_phone,
 						active_customer_status,
 					};
 
@@ -172,7 +172,6 @@ const customerController = {
 	},
 
 	// prepare updated data
-
 };
 
 export default customerController;
